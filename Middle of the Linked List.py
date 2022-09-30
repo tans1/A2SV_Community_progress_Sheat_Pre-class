@@ -3,18 +3,10 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
         node = head
-        i = 0
-        while head:
-            i +=1
+        while node and node.next:
             head = head.next
-        j = 0
-        while node:
-            if j == i//2:
-                return node
-            j +=1
-            node = node.next
-        return None
+            node = node.next.next   #this will travel twice the head
+        return head
